@@ -28,3 +28,7 @@ $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/the
 ## Hyper.js
 1. Install `Hyper.js` terminal emulator
 2. Copy `./hyper.js` into `~/`
+
+## Hhop
+1. Install `htop` via `Homebrew` or your system package manager (for Ubuntu `sudo apt-get htop`)
+2. Copy `./htop/` into `~/.config/`
