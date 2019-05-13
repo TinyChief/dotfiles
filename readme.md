@@ -16,15 +16,14 @@ Here is my configuration files for:
 1. Install `zsh` as default shell
 2. Copy `.zshrc` into `~/`
 2. Install `oh-my-zsh`:
-    ```
-    cd ~
-    git clone https://github.com/robbyrussell/oh-my-zsh .oh-my-zsh
-    ```
+```
+$ git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
+```
 3. Copy `./custom/` into `~/.oh-my-zsh`
 4. Install `powerlevel9k` theme:
-    ```
-    $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-    ```
+```
+$ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+```
 
 ## Hyper.js
 1. Install `Hyper.js` terminal emulator
