@@ -1,10 +1,12 @@
+# BECAUSE ME LAZY
+alias v="nvim"
 # ZSH CUSTOMIZING
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias alist="code ~/.oh-my-zsh/custom/aliases.sh"
-alias clist="code ~/.oh-my-zsh/custom/commands.sh"
-alias theme="code ~/.oh-my-zsh/custom/themes/my_custom.zsh-theme"
-alias customize="alist & clist & theme & zshconfig"
+alias cfv="vim ~/.vimrc"
+alias cfz="vim ~/.zshrc"
+alias cfo="vim ~/.oh-my-zsh"
+alias cfa="vim ~/.oh-my-zsh/custom/aliases.sh"
+alias cfc="vim ~/.oh-my-zsh/custom/commands.sh"
+alias cft="vim ~/.oh-my-zsh/custom/themes/my_custom.zsh-theme"
 
 # NPM
 alias gnm="cd /usr/local/lib/node_modules"
@@ -30,10 +32,10 @@ alias rcpp='./a.out'
 alias gs="git status"
 alias ga="git add"
 alias gc="git commit -m"
-alias gp="git push origin"
 alias gh="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 alias go="git checkout"
 alias gb="git branch"
+alias gd="git diff"
 
 # CREATE DAY WRITINGS
 alias cdw="cd ~/desktop/lw/ && sh doc.sh"

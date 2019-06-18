@@ -1,6 +1,4 @@
 #!/bin/bash
-# ZSH_THEME="agnoster"
-# source ~/.oh-my-zsh/themes/philips.zsh-theme
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 
