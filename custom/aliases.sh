@@ -1,5 +1,8 @@
 # BECAUSE ME LAZY
 alias v="nvim"
+alias cfi="nvim ~/.config/i3/config"
+alias cfp="nvim ~/.config/polybar/config"
+
 # ZSH CUSTOMIZING
 alias cfv="vim ~/.vimrc"
 alias cfz="vim ~/.zshrc"
