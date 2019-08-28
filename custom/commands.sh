@@ -21,3 +21,10 @@ function node-project {
   git add -A
   git commit -m "Initial commit"
 }
+
+function iros() {
+  cd ~/Downloads
+  sudo dpkg -i $(ls --sort time | head -1)
+}
+
+

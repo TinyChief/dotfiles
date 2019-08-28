@@ -2,6 +2,7 @@
 alias v="nvim"
 alias cfi="nvim ~/.config/i3/config"
 alias cfp="nvim ~/.config/polybar/config"
+alias base16="cd ~/.oh-my-zsh/custom && sh base16"
 
 # ZSH CUSTOMIZING
 alias cfv="vim ~/.vimrc"
