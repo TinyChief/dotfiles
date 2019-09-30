@@ -1,6 +1,6 @@
 # i3 config file (v4)
 set $mod Mod4
-set $myBroser firefox
+set $myBroser yandex-browser-beta
 set $myTerm terminator
 
 font pango:Hack Nerd 10
@@ -25,11 +25,9 @@ bindsym $mod+Shift+Return exec $myTerm --title FloatingTerminal
 bindsym $mod+d exec rofi -show run
 
 for_window [class="Nautilus"] floating enable border none
-for_window [class="Telegram"] floating enable border none
-for_window [class="GitKraken"] floating enable border none
-for_window [title="РосЧат"] floating enable border none
 for_window [class="^gnome"] floating enable border none
 for_window [class="Devtools"] floating enable border none
+for_window [class="VirtualBox Manager"] floating enable border none
 
 bindsym $mod+Shift+c kill
 bindsym $mod+b workspace back_and_forth
@@ -90,18 +88,18 @@ bindsym $mod+p exec ~/.config/i3/lock.sh
 set $ws1 "1:   Terminals"
 set $ws2 "2:   Editor"
 set $ws3 "3:   Browser"
-set $ws4 "4:   Social"
-set $ws5 "5:   Rhythmbox"
+set $ws4 "4:   Job-related"
+set $ws5 "5:   Social"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-workspace $ws1 output DP-1
-workspace $ws2 output DP-1
-workspace $ws3 output HDMI-1
-workspace $ws4 output HDMI-1
+workspace $ws1 output HDMI-1
+workspace $ws2 output HDMI-1
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
 workspace $ws5 output DP-1
 
 # default workspaces
@@ -113,11 +111,10 @@ assign [class="Firefox"] $ws3
 assign [class="Chrome"] $ws3
 assign [class="Yandex"] $ws3
 
-assign [class="Telegram"] $ws4
 assign [class="GitKraken"] $ws4
-assign [title="РосЧат"] $ws4
-
-assign [class="Rhythmbox"] $ws5
+assign [class="VirtualBox Manager"] $ws4
+assign [class="Telegram"] $ws5
+assign [title="РосЧат"] $ws5
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -217,15 +214,13 @@ exec --no-startup-id $myBrowser
 exec --no-startup-id $myTerm --title initialTerminal
 exec --no-startup-id roschat --title Росчат
 exec --no-startup-id telegram-desktop
-exec --no-startup-id gitkraken
-exec --no-startup-id rhythmbox
 
 # Toggle language RU/US
 exec "setxkbmap -layout us,ru"
 exec "setxkbmap -option 'grp:alt_shift_toggle'"
 
 # Set wallpaper
-exec_always feh --bg-scale $HOME/Downloads/bg3.jpg
+exec_always feh --bg-scale $HOME/Downloads/gradient-bg.jpg
 
 # Set double monitor setup
-exec_always xrandr --output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-2 --off --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal
+exec_always xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-2 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal

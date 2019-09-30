@@ -26,7 +26,7 @@ plugins=(
   emoji
 )
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH/custom/commands.sh
