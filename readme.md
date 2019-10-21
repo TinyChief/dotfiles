@@ -1,34 +1,40 @@
 # Configuration files
 
 Here is my configuration files for:
-- Vim
-- Hyper.js
+- Neovim
 - ZSH + oh-my-zsh
+- rofi
+- i3
+- polybar
 
-# Vim
-1. Install `vim`
-2. Copy `.vimrc` and `.vim` into `~/`
+## Neovim
+1. Install `nvim`
+```
+$ sudo apt install neovim    # for Ubuntu
+$ brew install neovim        # for MacOS
+```
+2. Copy `.vimrc` to `$HOME`
 3. Install `Vundle` plugin manager
-4. Launch `vim` (type `vim test.txt`) and install plugins: `: PluginInstall`
-
+```
+$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+4. Launch `nvim` and install plugins: 
+```
+:PluginInstall
+```
 
 ## ZSH + Oh-my-zsh
 1. Install `zsh` as default shell
-2. Copy `.zshrc` into `~/`
-2. Install `oh-my-zsh`:
+```
+$ chsh -s /bin/zsh
+```
+2. Copy `.zshrc` to `$HOME`
+2. Install `oh-my-zsh` (zsh framework):
 ```
 $ git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
 ```
-3. Copy `./custom/` into `~/.oh-my-zsh`
-4. Install `powerlevel9k` theme:
+3. Copy `zsh-custom/` into `~/.oh-my-zsh/`
+4. Install `powerlevel10k` theme:
 ```
-$ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+$ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
-
-## Hyper.js
-1. Install `Hyper.js` terminal emulator
-2. Copy `./hyper.js` into `~/`
-
-## Hhop
-1. Install `htop` via `Homebrew` or your system package manager (for Ubuntu `sudo apt-get htop`)
-2. Copy `./htop/` into `~/.config/`

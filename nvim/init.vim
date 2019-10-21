@@ -9,6 +9,6 @@ hi! CursorNormal guibg=#f3a082
 hi! CursorInsert guibg=#f3a082
 hi! CursorVisual guibg=#6d33ff
 
-call plug#begin('~/.vim/plugged')
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-call plug#end()
+" call plug#begin('~/.vim/plugged')
+  " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+" call plug#end()

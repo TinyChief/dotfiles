@@ -160,8 +160,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+Plugin 'neoclide/coc.nvim'
 Plugin 'VundleVim/Vundle.vim' " plugin manager
-" Plugin 'valloric/youcompleteme'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'itchyny/lightline.vim' " status bar
 Plugin 'scrooloose/nerdtree' " directory tree for vim
@@ -171,14 +171,12 @@ Plugin 'scrooloose/syntastic' " validation scripts
 Plugin 'terryma/vim-multiple-cursors' " sublime multiple cursors
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy file finder with ctrl-p
 Plugin 'easymotion/vim-easymotion' " vim easymotion
-" avascript
+" javascript
 Plugin 'isRuslan/vim-es6'
 Plugin 'posva/vim-vue'
 Plugin 'prettier/vim-prettier' " plugin for code formatting
 Plugin 'Galooshi/vim-import-js' " auto importing for js
 " colorscheme
-Plugin 'morhetz/gruvbox'
-Plugin 'dikiaap/minimalist'
 Plugin 'joshdick/onedark.vim'
 
 call vundle#end()
