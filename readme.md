@@ -29,11 +29,11 @@ $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 $ chsh -s /bin/zsh
 ```
 2. Copy `.zshrc` to `$HOME`
-2. Install `oh-my-zsh` (zsh framework):
+3. Install `oh-my-zsh` (zsh framework):
 ```
 $ git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
 ```
-3. Copy `zsh-custom/` into `~/.oh-my-zsh/`
+3. Copy `zsh-custom/` into `~/.oh-my-zsh/custom`
 4. Install `powerlevel10k` theme:
 ```
 $ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
