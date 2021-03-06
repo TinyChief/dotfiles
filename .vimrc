@@ -111,10 +111,10 @@ set splitbelow
 
 " ================= Bindings ========================
 "" resize current buffer by +/- 5 
-nmap 7 :vertical res +5<CR> " vertical increase pane by 5
-nmap 8 :res +5<CR> " increase pane by 5 
-nmap 9 :res -5<CR> " decrease pane by 5
-nmap 0 :vertical res -5<CR> " vertical decrease pane by 5
+" nmap 7 :vertical res +5<CR> " vertical increase pane by 5
+" nmap 8 :res +5<CR> " increase pane by 5 
+" nmap 9 :res -5<CR> " decrease pane by 5
+" nmap 0 :vertical res -5<CR> " vertical decrease pane by 5
 
 " to move visual lines not paragraphs
 nmap j gj
@@ -160,7 +160,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-Plugin 'neoclide/coc.nvim'
 Plugin 'VundleVim/Vundle.vim' " plugin manager
 Plugin 'sheerun/vim-polyglot'
 Plugin 'itchyny/lightline.vim' " status bar
@@ -171,11 +170,6 @@ Plugin 'scrooloose/syntastic' " validation scripts
 Plugin 'terryma/vim-multiple-cursors' " sublime multiple cursors
 Plugin 'ctrlpvim/ctrlp.vim' " fuzzy file finder with ctrl-p
 Plugin 'easymotion/vim-easymotion' " vim easymotion
-" javascript
-Plugin 'isRuslan/vim-es6'
-Plugin 'posva/vim-vue'
-Plugin 'prettier/vim-prettier' " plugin for code formatting
-Plugin 'Galooshi/vim-import-js' " auto importing for js
 " colorscheme
 Plugin 'joshdick/onedark.vim'
 
@@ -184,17 +178,17 @@ call vundle#end()
 filetype plugin indent on    " required
 
 " If vim opened w/o args automaticly launch NERDTree
-autocmd VimEnter * if !argc() | NERDTree | endif 
+autocmd VimEnter * if !argc() | NERDTree | endif
 
 
-" --- Cursor and cursorline --- 
+" --- Cursor and cursorline ---
 " Change cursor style on different modes
 let &t_SI.="\e[6 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 
 " Cursor Line Number
-hi CursorLineNR ctermfg=white 
+hi CursorLineNR ctermfg=white
 
 
 " -----------------------------------------------------------------------------

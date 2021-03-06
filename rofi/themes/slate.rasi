@@ -1,0 +1,63 @@
+configuration {
+    show-icons: true;
+    font: "Hack Nerd Font 12";
+}
+
+@import "../colors.rasi"
+
+* {
+  background-color: @background;
+  border-color: @border-solid;
+  text-color: @foreground;
+  spacing: 0;
+}
+
+#window {
+  width: 450px;
+  height: 500px;
+}
+
+inputbar {
+  border: 0 0 1px 0;
+  children: [prompt,entry];
+}
+
+prompt {
+  padding: 16px;
+  border: 0 1px 0 0;
+}
+
+textbox {
+  background-color: @background;
+  border: 0 0 1px 0;
+  border-color: @border-solid;
+  padding: 8px 16px;
+}
+
+entry {
+  padding: 16px;
+}
+
+listview {
+  cycle: false;
+  margin: 0 0 -1px 0;
+  scrollbar: false;
+}
+
+element {
+  border: 0 0 1px 0;
+  padding: 16px;
+}
+
+element-icon {
+    size: 30px;
+    margin: 0 14px 0 0;
+}
+
+element-text {
+  padding: 5px 0 0 0;
+}
+
+element selected {
+  background-color: @selected-background;
+}

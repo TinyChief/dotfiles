@@ -1,36 +1,83 @@
 # i3 config file (v4)
+#
+# # Set common scripts to vars
+
 set $mod Mod4
-set $myBroser yandex-browser-beta
-set $myTerm terminator
+set $myBrowser brave
+set $myTerm kitty
+set $myFileManager pcmanfm
+set $rofi ~/.config/rofi/scripts/launch.sh
 
 font pango:Hack Nerd 10
-new_window pixel 1
-new_float normal
 
-hide_edge_borders none
+# Turn borders off
+for_window [class="^.*"] border pixel 2
 
-bindsym $mod+u border none
-bindsym $mod+y border pixel 1
-bindsym $mod+n border normal
+# Change gap size
+gaps outer 4
+gaps inner 8
 
+# Move floating window
 floating_modifier $mod
+
+bindsym $mod+u  border none
+bindsym $mod+y border pixel 2
+bindsym $mod+n border normal
 
 # start a terminal
 bindsym $mod+Return exec $myTerm
-
 # start floating termianl
-for_window [title="FloatingTerminal"] floating enable
-bindsym $mod+Shift+Return exec $myTerm --title FloatingTerminal
+bindsym $mod+Shift+Return exec $myTerm --title floating-terminal
 
-bindsym $mod+d exec rofi -show run
+# start browser and filemanager
+# bindsym $mod+w exec $myBrowser
+bindsym $mod+f exec $myFileManager
 
-for_window [class="Nautilus"] floating enable border none
-for_window [class="^gnome"] floating enable border none
-for_window [class="Devtools"] floating enable border none
-for_window [class="VirtualBox Manager"] floating enable border none
+# Kill focused window
+bindsym $mod+q kill
 
-bindsym $mod+Shift+c kill
+# Start rofi with appmenu and tabmenu
+# bindsym $mod+space exec $rofi appmenu
+# bindsym $mod+Tab exec $rofi tabmenu
+# bindsym $mod+Shift+e exec $rofi powermenu
+bindsym $mod+d exec $rofi appmenu
+bindsym $mod+Tab exec $rofi tabmenu
+bindsym $mod+Shift+q exec $rofi powermenu
+bindsym $mod+Shift+d exec dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+
+# Set up screenshots and partial screenshots
+bindsym --release Print exec maim ~/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Shift+Print exec maim -s ~/screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Bind keys to switch to next workspace
+# bindsym $mod+] workspace next
+# bindsym $mod+[ workspace prev
 bindsym $mod+b workspace back_and_forth
+
+# Always float certain windows
+for_window [class="Nautilus"] floating enable
+for_window [class="^gnome"] floating enable
+for_window [class="Devtools"] floating enable
+for_window [class="VirtualBox Manager"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [title="floating-terminal"] floating enable resize set 800 600
+for_window [class="Variety"] floating enable
+for_window [class="Conky"] floating enable border none
+for_window [class="Steam"] floating enable border none
+for_window [class="[dD]iscord"] floating enable border none
+for_window [class="[fF]ile-roller"] floating enable resize set 600 400
+for_window [class="Thunar"] floating enable resize set 900 600
+for_window [class="[rR]istretto"] floating enable resize set 900 600
+for_window [class="[pP]cmanfm"] floating enable resize set 900 600
 
 # change focus
 bindsym $mod+h focus left
@@ -59,29 +106,16 @@ bindsym $mod+Shift+Right move right
 # split in horizontal orientation
 bindsym $mod+z split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
-bindsym $mod+q split toggle
+# bindsym $mod+q split toggle
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f fullscreen toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-
-# Lock desktop
-bindsym $mod+p exec ~/.config/i3/lock.sh
-
-#bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -94,27 +128,33 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
 
-workspace $ws1 output HDMI-1
-workspace $ws2 output HDMI-1
-workspace $ws3 output DP-1
-workspace $ws4 output DP-1
-workspace $ws5 output DP-1
+# workspace $ws1 output HDMI-1
+# workspace $ws2 output HDMI-1
+# workspace $ws3 output DP-1
+# workspace $ws4 output DP-1
+# workspace $ws5 output DP-1
 
 # default workspaces
-assign [title="initialTerminal"] $ws1
-
+assign [title="initial-terminal"] $ws1
 assign [class="Code"] $ws2
 
 assign [class="Firefox"] $ws3
 assign [class="Chrome"] $ws3
 assign [class="Yandex"] $ws3
+assign [class="Brave"] $ws3
 
 assign [class="GitKraken"] $ws4
+assign [class="[pP]cmanfm"] $ws4
 assign [class="VirtualBox Manager"] $ws4
+
 assign [class="Telegram"] $ws5
 assign [title="РосЧат"] $ws5
+
+assign [class="Steam"] $ws6
+assign [class="Discord"] $ws6
+
+assign [class="Conky"] $ws9
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -128,6 +168,7 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
 # move focused container to workspace
+bindsym $mod+Shift+0 move container to workspace $ws0
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -144,11 +185,6 @@ bindsym $mod+Alt+r reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# Logout and Shutdown
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'LOG OUT?' -b 'Sure' 'i3-msg exit'"
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'SHUTDOWN?' -b 'Yeah, sure' 'shutdown -h now'"
-
 
 # MODES
 # resize window (you can also use the mouse for that)
@@ -169,13 +205,17 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-    #status_command polybar
-    #mode invisible
-    #output DP-1
-#}
+bindsym $mod+shift+v mode "variety"
+mode "variety" {
+        bindsym n exec variety --next
+        bindsym p exec variety --previous
+        bindsym s exec variety --pause
+        bindsym r exec variety --resume
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
@@ -187,17 +227,13 @@ client.background       #ffffff
 ### settings for i3-gaps: ###
 #############################
 
-# Set inner/outer gaps
-gaps inner 10
-gaps outer -4
-
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -205,22 +241,24 @@ smart_borders on
 
 
 # STARTUP
-# Compton
-exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
+# Make sure fonts are loaded right
+# exec_always xset +fp /home/vadim/.fonts
+# exec_always xset fp rehash
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Applications
-exec --no-startup-id $myBrowser
-exec --no-startup-id $myTerm --title initialTerminal
-exec --no-startup-id roschat --title Росчат
-exec --no-startup-id telegram-desktop
+exec --no-startup-id $myTerm --title initial-terminal
 
 # Toggle language RU/US
-exec "setxkbmap -layout us,ru"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
+exec_always "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'"
 
 # Set wallpaper
-exec_always feh --bg-scale $HOME/Downloads/gradient-bg.jpg
+# feh --bg-scale $HOME/Downloads/gradient-bg.jpg
+exec --no-startup-id variety -n
+
+# Picom
+exec_always --no-startup-id "pkill picom; picom --config ~/.config/i3/picom.conf"
+exec_always --no-startup-id "pkill conky; conky --config $HOME/.config/conky/AUR-Allinone.conkyrc"
 
 # Set double monitor setup
-exec_always xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-2 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+# exec_always xrandr --output DP-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-2 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal

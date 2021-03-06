@@ -2,7 +2,7 @@
 alias v="nvim"
 alias cfi="nvim ~/.config/i3/config"
 alias cfp="nvim ~/.config/polybar/config"
-alias base16="cd ~/.oh-my-zsh/custom && sh base16"
+alias base16="~/.oh-my-zsh/custom/base16"
 
 # ZSH CUSTOMIZING
 alias cfv="vim ~/.vimrc"
@@ -20,17 +20,13 @@ alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias ..='cd ../'
 alias re='source ~/.zshrc'
-alias de='cd ~/desktop'
+alias de='cd ~/Desktop'
 
 # ZSH global aliases for piping
 # Example : cat myfile.txt G pattern
 alias -g G='| grep -in'
 alias -g T='| tail'
 alias -g L='| less'
-
-# PLAY WITH CPP
-alias cpp='clang++ -std=c++11 -stdlib=libc++ main.cpp -o ./a.out && ./a.out'
-alias rcpp='./a.out'
 
 # GIT SHORTCUTS
 alias gs="git status"
@@ -40,15 +36,6 @@ alias gh="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 alias go="git checkout"
 alias gb="git branch"
 alias gd="git diff"
-
-# CREATE DAY WRITINGS
-alias cdw="cd ~/desktop/lw/ && sh doc.sh"
-
-# OTHERS
-alias hsd="http-server dist"
-
-# PYTHON
-alias actenv="source env/bin/activate"
 
 #PRO TIPS
 # Show files in folder that larger than 100 megabytes.

@@ -1,40 +1,76 @@
-# Configuration files
+# Dotfiles
 
 Here is my configuration files for:
-- Neovim
-- ZSH + oh-my-zsh
-- rofi
-- i3
-- polybar
+- [zsh & oh-my-zsh](#zsh--oh-my-zsh)
+- [i3-gaps](#i3-gaps)
+- [rofi](#rofi)
+- [polybar](#polybar)
+- [vim/neovim](#vim/neovim)
+- [vifm](#vifm)
+- [kitty terminal](#kitty-terminal)
 
-## Neovim
-1. Install `nvim`
+## After installing of above
+``` !# /bin/bash
+$ git clone https://github.com/tinychief/dotfiles
+$ cd dotfiles
+$ ./install.sh
 ```
-$ sudo apt install neovim    # for Ubuntu
-$ brew install neovim        # for MacOS
+
+## zsh & oh-my-zsh
+- zsh-autosuggestions and zsh-syntax-highlighting plugins
+- useful aliases (run `cfa` to see all)
+
+### Don't forget
+Install `zsh` as default shell
 ```
-2. Copy `.vimrc` to `$HOME`
-3. Install `Vundle` plugin manager
+$ chsh -s /bin/zsh
 ```
-$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+## i3-gaps
+- `$mod Mod4` (aka Windows button)
+- `$mod+q` - to close window
+- `$mod+d` - to rofi drun
+- `$mod+Shift+q` - to rofi powermenu
+### Don't forget
+Change default apps to what you use
 ```
-4. Launch `nvim` and install plugins: 
+$ vim $HOME/.config/i3/config # or cfi
+```
+edit these lines
+```
+set $myBrowser brave
+set $myTerm kitty
+set $myFileManager pcmanfm
+```
+
+## polybar
+- simple and neat
+- bottom placement
+- systray, pulseaudio-control, i3wm, date modules
+### Don't forget
+- if want place bar on top
+- Edit pulseaudio-control module to have your devices
+
+## vim/neovim
+- plugins like lightline, nerdtree, vim-easymotion, etc.
+- onedark colorscheme
+- useful shortcuts (`vv` - vertical split, `Q` - :wq, `\` - :nohlsearch, etc)
+
+### Don't forget
+Launch `vim` (or `nvim`) and install plugins:
 ```
 :PluginInstall
 ```
 
-## ZSH + Oh-my-zsh
-1. Install `zsh` as default shell
+## vifm
+- custom theme
+
+## kitty terminal
+- banch of themes ([from](https://github.com/dexpota/kitty-themes))
+### Don't forget
+Set theme you like, changing `$HOME/.config/kitty/kitty.conf`
 ```
-$ chsh -s /bin/zsh
+# Set theme
+include themes/ayu.conf
 ```
-2. Copy `.zshrc` to `$HOME`
-3. Install `oh-my-zsh` (zsh framework):
-```
-$ git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
-```
-3. Copy `zsh-custom/` into `~/.oh-my-zsh/custom`
-4. Install `powerlevel10k` theme:
-```
-$ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-```
+
