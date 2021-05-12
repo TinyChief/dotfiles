@@ -3,7 +3,7 @@
 menu="$1"
 
 if [ "$menu" = "appmenu" ]; then
-    rofi -show drun -theme slate
+    rofi -show drun -theme ~/.config/rofi/themes/slate.rasi
 elif [ "$menu" = "tabmenu" ]; then
     rofi \
         -show window -theme slate \

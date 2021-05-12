@@ -3,7 +3,7 @@ echo 'Let`s install goodies'
 zsh --version
 git --version
 
-dest=$HOME/test
+dest=$HOME
 conf_dir=$dest/.config
 
 git clone https://github.com/robbyrussell/oh-my-zsh $dest/.oh-my-zsh
